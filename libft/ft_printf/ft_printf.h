@@ -6,13 +6,13 @@
 /*   By: mshabano <mshabano@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 19:18:19 by mshabano          #+#    #+#             */
-/*   Updated: 2024/08/17 12:52:26 by mshabano         ###   ########.fr       */
+/*   Updated: 2024/08/17 16:28:30 by mshabano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "../libft/libft.h"
+# include "../libft.h"
 # define HEX_UPP "0123456789ABCDEF"
 # define HEX_LOW "0123456789abcdef"
 

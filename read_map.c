@@ -6,7 +6,7 @@
 /*   By: mshabano <mshabano@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 18:01:09 by mshabano          #+#    #+#             */
-/*   Updated: 2024/08/17 16:23:02 by mshabano         ###   ########.fr       */
+/*   Updated: 2024/08/17 20:53:28 by mshabano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int extension_check(char *map)
 {
 	if (ft_strncmp((map + ft_strlen(map) - 4), ".ber", 4))
 	{
-			ft_printf("ERROR: incorrect file extension");
-			return (0);
+		ft_printf("Error\nIncorrect file extension");
+		return (0);
 	}
 	return (1);
 }
@@ -26,7 +26,7 @@ int fd_check(int fd)
 {
 	if (fd < 0)
 	{
-		ft_printf("ERROR: incorrect file name or path");
+		ft_printf("Error\nIncorrect file name or path");
 		return 0;
 	}
 	return (1);
@@ -51,7 +51,8 @@ void count_height(t_map *map)
 int add_map(t_map *map)
 {
 	int	i;
-
+	
+	printf("%d\n", map->height);
 	if (map->height < 1)
 		return (0);
 	i = 0;
@@ -110,7 +111,7 @@ int read_map(char *s, t_map *map)
 	count_height(map);
 	close(map->fd);
 	map->fd = open(s, O_RDONLY);
-	if (!add_map(map));
+	if (!add_map(map))
 	{
 		close(map->fd);
 		return (0);
