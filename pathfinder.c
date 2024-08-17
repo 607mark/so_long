@@ -6,7 +6,7 @@
 /*   By: mshabano <mshabano@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 21:14:20 by mshabano          #+#    #+#             */
-/*   Updated: 2024/08/17 23:32:57 by mshabano         ###   ########.fr       */
+/*   Updated: 2024/08/18 00:11:44 by mshabano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int path_find(t_map *map)
 	map_2.collectibles = 0;
 	char_loop(&map_2);
 	free_arrs(&map_2, map->height, "");
-	if(map_2.starts == 0 && map_2.exits == 0 && map_2.collectibles == 0)
+	if(map_2.exits == 0 && map_2.collectibles == 0)
 		return (1);
 	ft_printf("Error\nNo valid path for the map");
 	return (0);
