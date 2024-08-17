@@ -6,13 +6,13 @@
 /*   By: mshabano <mshabano@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:30:00 by mshabano          #+#    #+#             */
-/*   Updated: 2024/08/17 20:50:57 by mshabano         ###   ########.fr       */
+/*   Updated: 2024/08/17 22:29:55 by mshabano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int symbols_check(t_map *map)
+static int symbols_check(t_map *map)
 {
 	int	i;
 	int	j;
@@ -34,7 +34,7 @@ int symbols_check(t_map *map)
 	return (1);
 }
 
-int shape_check(t_map *map)
+static int shape_check(t_map *map)
 {
 	int	i;
 	
@@ -48,11 +48,10 @@ int shape_check(t_map *map)
 		}
 		i++;
 	}
-	map->width = ft_strlen(map->tiles[0]);
 	return (1);
 }
 
-void check_walls(t_map *map, int *flag)
+static void check_walls(t_map *map, int *flag)
 {
 	int	i;
 
@@ -72,7 +71,7 @@ void check_walls(t_map *map, int *flag)
 	}
 }
 
-int borders_check(t_map *map)
+static int borders_check(t_map *map)
 {
 	int	i;
 	int	flag;
@@ -100,7 +99,7 @@ int borders_check(t_map *map)
 
 int valid_map(t_map *map)
 {
-	if (!symbols_check(map) || !shape_check(map) || !borders_check(map) || !char_check(map))
+	if (!symbols_check(map) || !shape_check(map) || !borders_check(map) || !char_check(map) || !path_find(map))
 	{
 		free_arrs(map, map->height, "");
 		return (0);

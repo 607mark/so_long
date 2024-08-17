@@ -6,7 +6,7 @@
 /*   By: mshabano <mshabano@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 18:01:09 by mshabano          #+#    #+#             */
-/*   Updated: 2024/08/17 20:53:28 by mshabano         ###   ########.fr       */
+/*   Updated: 2024/08/17 22:34:40 by mshabano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int add_map(t_map *map)
 			i++;
 		}
 	}
+	map->width = ft_strlen(map->tiles[0]);
 	return (1);
 }
 
@@ -102,6 +103,7 @@ int read_map(char *s, t_map *map)
 
 	if (!extension_check(s))
 		return (0);
+	map->file = s;
 	map->fd = open(s, O_RDONLY);
 	if (!fd_check(map->fd))
 	{

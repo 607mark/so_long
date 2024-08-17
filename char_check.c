@@ -6,23 +6,30 @@
 /*   By: mshabano <mshabano@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 20:34:44 by mshabano          #+#    #+#             */
-/*   Updated: 2024/08/17 20:56:00 by mshabano         ###   ########.fr       */
+/*   Updated: 2024/08/17 22:43:44 by mshabano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void char_increment(t_map *map, char c)
+void char_increment(t_map *map, char c, int y, int x)
 {
 	if (c == 'P')
+	{
+		map->start_x = x;
+		map->start_y = y;
 		(map->starts)++;
+	}
 	else if (c == 'E')
+	{
+		map->exit_x = x;
+		map->exit_y = y;
 		(map->exits)++;
+	}
 	else if (c == 'C')
 		(map->collectibles)++;
 }
-
-int char_check(t_map *map)
+void char_loop(t_map *map)
 {	
 	int	i;
 	int	j;
@@ -33,11 +40,16 @@ int char_check(t_map *map)
 		j = 0;
 		while(j < map->width)
 		{
-			char_increment(map, map->tiles[i][j]);
+			char_increment(map, map->tiles[i][j], i, j);
 			j++;
 		}
 		i++;
 	}
+}
+
+int char_check(t_map *map)
+{
+	char_loop(map);
 	if (map->starts > 1 || map->exits > 1 || map->collectibles < 1)
 	{
 		ft_printf("Error\nWrong number of players, exits or collectibles");
@@ -45,3 +57,5 @@ int char_check(t_map *map)
 	}
 	return (1);
 }
+
+
