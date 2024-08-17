@@ -6,13 +6,13 @@
 /*   By: mshabano <mshabano@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 19:18:19 by mshabano          #+#    #+#             */
-/*   Updated: 2024/06/20 17:18:00 by mshabano         ###   ########.fr       */
+/*   Updated: 2024/08/17 12:52:26 by mshabano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
+# include "../libft/libft.h"
 # define HEX_UPP "0123456789ABCDEF"
 # define HEX_LOW "0123456789abcdef"
 
@@ -20,8 +20,8 @@
 # include <stdarg.h>
 
 void	print_format(const char **specifier, va_list args, int *printed);
-char	*ft_strchr(const char *s, int c);
-int		ft_strlen(const char *s);
+char	*pr_strchr(const char *s, int c);
+int		pr_strlen(const char *s);
 int		put_str(const char *s, int len, int *printed);
 int		put_ptr(unsigned long ptr);
 int		put_hex(long long n, char c);

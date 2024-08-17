@@ -6,13 +6,13 @@
 /*   By: mshabano <mshabano@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 19:49:26 by mshabano          #+#    #+#             */
-/*   Updated: 2024/06/20 17:17:26 by mshabano         ###   ########.fr       */
+/*   Updated: 2024/08/17 12:51:37 by mshabano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*pr_strchr(const char *s, int c)
 {
 	unsigned int	i;
 
@@ -26,7 +26,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-int	ft_strlen(const char *s)
+int	pr_strlen(const char *s)
 {
 	int	len;
 
@@ -48,7 +48,7 @@ int	put_str(const char *s, int len, int *printed)
 		return (tmp);
 	}
 	if (len == -1)
-		len = ft_strlen(s);
+		len = pr_strlen(s);
 	tmp = (write (1, s, len));
 	if (tmp == -1)
 		*printed = -1;

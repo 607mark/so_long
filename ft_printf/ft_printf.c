@@ -48,11 +48,11 @@ int	ft_printf(const char *s, ...)
 	printed = 0;
 	while (*s && printed != -1)
 	{
-		if (ft_strchr(s, '%'))
+		if (pr_strchr(s, '%'))
 		{
-			if (put_str(s, ft_strchr(s, '%') - s, &printed) == -1)
+			if (put_str(s, pr_strchr(s, '%') - s, &printed) == -1)
 				break ;
-			s = ft_strchr(s, '%') + 1;
+			s = pr_strchr(s, '%') + 1;
 			print_format(&s, args, &printed);
 		}
 		else
