@@ -6,7 +6,7 @@
 /*   By: mshabano <mshabano@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 18:01:09 by mshabano          #+#    #+#             */
-/*   Updated: 2024/08/17 22:34:40 by mshabano         ###   ########.fr       */
+/*   Updated: 2024/08/20 22:06:54 by mshabano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int add_map(t_map *map)
 		map->line = NULL;
 		map->line = get_next_line(map->fd);
 		if (!map->line)
-			break;
+			return(0);
 		else
 		{
 			if(ft_strchr(map->line, '\n'))
@@ -74,6 +74,8 @@ int add_map(t_map *map)
 		}
 	}
 	map->width = ft_strlen(map->tiles[0]);
+	map->win.w = map->width * TILE_SIZE;
+	map->win.h = map->height * TILE_SIZE;
 	return (1);
 }
 
@@ -115,6 +117,7 @@ int read_map(char *s, t_map *map)
 	map->fd = open(s, O_RDONLY);
 	if (!add_map(map))
 	{
+		ft_printf("Error\nMemory allocation failed");
 		close(map->fd);
 		return (0);
 	}
