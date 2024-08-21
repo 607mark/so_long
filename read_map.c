@@ -74,8 +74,8 @@ int add_map(t_map *map)
 		}
 	}
 	map->width = ft_strlen(map->tiles[0]);
-	map->win.w = map->width * TILE_SIZE;
-	map->win.h = map->height * TILE_SIZE;
+	map->win.w = map->width * SIZE;
+	map->win.h = map->height * SIZE;
 	return (1);
 }
 

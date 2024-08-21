@@ -5,18 +5,21 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include "image_paths.h"
 
 #include <MLX42/MLX42.h>
 #include "libft/get_next_line/get_next_line.h"
 #include "libft/libft.h"
 #include "libft/ft_printf/ft_printf.h"
 
-# define TILE_SIZE 32
-
-# define IMG_NUM 5
+# define SIZE 128
 
 # define NAME "so_long"
+
+# define WALL_IMG_PATH "./img/bush.png"
+# define DUCK_IMG_PATH "./img/duck.png"
+# define EGG_IMG_PATH "./img/egg.png"
+# define GRASS_IMG_PATH "./img/grass.png"
+# define NEST_IMG_PATH "./img/nest.png"
 
 
 typedef struct s_win
@@ -45,6 +48,8 @@ typedef struct s_map
 	int	starts;
 	int	exits;
 	int	collectibles;
+	int	moves;
+
 	int	width;
 	int	height;
 	
@@ -68,6 +73,8 @@ int free_arrs(t_map *map, int i, char *s);
 void clean_exit(t_map *map, const char *s);
 void render_map(t_map *map);
 void init_images(t_map *map);
+
+void    keyhook(mlx_key_data_t keydata, void *param);
 //to remove
 void print_map(t_map *map);
 #endif

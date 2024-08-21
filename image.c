@@ -24,7 +24,7 @@ static mlx_image_t *img_load(t_map *map, const char *path)
 	if (!image)
 		clean_exit(map, "Failed to convert texture");
 	mlx_delete_texture(texture);
-	if(!mlx_resize_image(image, TILE_SIZE, TILE_SIZE))
+	if(!mlx_resize_image(image, SIZE, SIZE))
 		clean_exit(map, "Failed to resize image");
 	return (image);
 }

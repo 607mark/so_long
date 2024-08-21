@@ -1,0 +1,1 @@
+cc -g -o so_long *.c libft/get_next_line/*.c MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm libft/libft.a libft/ft_printf/libftprintf.a
