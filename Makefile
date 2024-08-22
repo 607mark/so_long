@@ -66,6 +66,7 @@ clean:
 # Clean all, including the executable
 fclean: clean
 	rm -f $(NAME)
+	rm -rf $(MLX)
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@$(MAKE) -C $(FT_PRINTF_DIR) fclean
 
