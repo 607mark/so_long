@@ -33,39 +33,26 @@ int collect(t_map *map)
 
 void apply_move(t_map *map)
 {
-
-	int	y;
-	int	x;
-
-	y = map->y;
-	x = map->x;
-	print_map(map);
 	map->moves++;
-	ft_printf("Colle: %d\n", map->collectibles);
 	ft_printf("Move #%d\n", map->moves);
-	map->img.duck->instances[0].y = y * SIZE;
-	map->img.duck->instances[0].x = x * SIZE;
-	map->start_y = y;
-	map->start_x = x;
+	map->img.duck->instances[0].y = map->y * SIZE;
+	map->img.duck->instances[0].x = map->x * SIZE;
+	map->start_y = map->y;
+	map->start_x = map->x;
 }
 
 void move(t_map *map)
 {
-	int	y;
-	int	x;
-	
-	y = map->y;
-	x = map->x;
-	if (map->tiles[y][x] == '1')
+	if (map->tiles[map->y][map->x] == '1')
 		return ;
-	else if (map->tiles[y][x] == '0')
+	else if (map->tiles[map->y][map->x] == '0')
 		apply_move(map);
-	else if (map->tiles[y][x] == 'C')
+	else if (map->tiles[map->y][map->x] == 'C')
 	{
-		ft_printf("TEST \n%d\n", collect(map));
+		collect(map);
 		apply_move(map);
 	}
-	else if (map->tiles[y][x] == 'E')
+	else if (map->tiles[map->y][map->x] == 'E')
 	{
 		apply_move(map);
 		if (map->collectibles == 0)
@@ -79,7 +66,7 @@ void	keyhook(mlx_key_data_t keydata, void *param)
 
 	map = (t_map *)param;
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
-		clean_exit(map, "");
+		clean_exit(map, "Window was closed");
 	if (keydata.key == MLX_KEY_UP && keydata.action == MLX_PRESS)
 	{
 		map->y = map->start_y - 1;

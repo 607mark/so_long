@@ -52,7 +52,7 @@ int char_check(t_map *map)
 	char_loop(map);
 	if (map->starts > 1 || map->exits > 1 || map->collectibles < 1)
 	{
-		ft_printf("Error\nWrong number of players, exits or collectibles");
+		ft_printf("Error\nWrong number of players, exits or collectibles\n");
 		return (0);
 	}
 	return (1);

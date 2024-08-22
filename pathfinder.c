@@ -29,18 +29,16 @@ int path_find(t_map *map)
 
 	ft_bzero(&map_2, sizeof(t_map));
 	read_map(map->file, &map_2);
-	ft_printf("\n");
 	char_loop(&map_2);
 	fill(&map_2, map_2.start_y, map_2.start_x);
-	print_map(&map_2);
 	map_2.starts = 0;
 	map_2.exits = 0;
 	map_2.collectibles = 0;
 	char_loop(&map_2);
-	free_arrs(&map_2, map->height, "");
+	free_tiles(&map_2, map->height);
 	if(map_2.exits == 0 && map_2.collectibles == 0)
 		return (1);
-	ft_printf("Error\nNo valid path for the map");
+	ft_printf("Error\nNo valid path for the map\n");
 	return (0);
 	
 	

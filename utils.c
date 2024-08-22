@@ -12,17 +12,16 @@
 
 #include "so_long.h"
 
-int free_arrs(t_map *map, int i, char *s)
+int free_tiles(t_map *map, int i)
 {
 	int j;
 	
 	j = 0;
-	while (j < i)
+	while (j < i && map->tiles[j])
 	{
 		free(map->tiles[j]);
 		j++;
 	}
 	free(map->tiles);
-	ft_printf("%s\n", s);
 	return (0);
 }

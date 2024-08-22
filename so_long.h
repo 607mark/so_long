@@ -52,7 +52,6 @@ typedef struct s_map
 
 	int	width;
 	int	height;
-	
 	t_win	win;
 	t_img	img;
 	int	x;
@@ -69,7 +68,7 @@ int char_check(t_map *map);
 void char_loop(t_map *map);
 int path_find(t_map *map);
 //utils
-int free_arrs(t_map *map, int i, char *s);
+int free_tiles(t_map *map, int i);
 void clean_exit(t_map *map, const char *s);
 void render_map(t_map *map);
 void init_images(t_map *map);

@@ -16,7 +16,7 @@ int extension_check(char *map)
 {
 	if (ft_strncmp((map + ft_strlen(map) - 4), ".ber", 4))
 	{
-		ft_printf("Error\nIncorrect file extension");
+		ft_printf("Error\nIncorrect file extension\n");
 		return (0);
 	}
 	return (1);
@@ -26,7 +26,7 @@ int fd_check(int fd)
 {
 	if (fd < 0)
 	{
-		ft_printf("Error\nIncorrect file name or path");
+		ft_printf("Error\nIncorrect file name or path\n");
 		return 0;
 	}
 	return (1);
@@ -52,7 +52,6 @@ int add_map(t_map *map)
 {
 	int	i;
 	
-	printf("%d\n", map->height);
 	if (map->height < 1)
 		return (0);
 	i = 0;
@@ -117,11 +116,10 @@ int read_map(char *s, t_map *map)
 	map->fd = open(s, O_RDONLY);
 	if (!add_map(map))
 	{
-		ft_printf("Error\nMemory allocation failed");
+		ft_printf("Error\nMemory allocation failed\n");
 		close(map->fd);
 		return (0);
 	}
 	close(map->fd);
-	print_map(map);
 	return (1);
 }

@@ -20,7 +20,7 @@ void display_tile(t_map *map, mlx_image_t *image, int y, int x)
 
 void render_tile(t_map *map, char c, int y, int x)
 {
-		display_tile(map, map->img.grass, y, x);
+	display_tile(map, map->img.grass, y, x);
 	if (c == '1')
 		display_tile(map, map->img.wall, y, x);
 	if (c == 'C')

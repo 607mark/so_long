@@ -16,38 +16,34 @@ void close_window(void *param)
 {
 	t_map *map; 
 	map = (t_map *)param;
-	clean_exit(map, "");
+	clean_exit(map, "Window was closed");
 }
 
 void clean_exit(t_map *map, const char *s)
 {
-/*	if(map->img.wall)
-	{
-	mlx_delete_image(map->win.mlx, map->img.wall);
-	mlx_delete_image(map->win.mlx, map->img.duck);
-	mlx_delete_image(map->win.mlx, map->img.egg);
-	mlx_delete_image(map->win.mlx, map->img.grass);
-	mlx_delete_image(map->win.mlx, map->img.nest);
-	}
+	if(map->img.wall)
+		mlx_delete_image(map->win.mlx, map->img.wall);
+	if(map->img.duck)
+		mlx_delete_image(map->win.mlx, map->img.duck);
+	if(map->img.egg)
+		mlx_delete_image(map->win.mlx, map->img.egg);
+	if(map->img.grass)
+		mlx_delete_image(map->win.mlx, map->img.grass);
+	if(map->img.nest)
+		mlx_delete_image(map->win.mlx, map->img.nest);
 	if(map->tiles)
-		free_arrs(map, map->height, "");
+		free_tiles(map, map->height);
 	if(map->win.mlx)
 		mlx_terminate(map->win.mlx);
-*/	ft_printf("Error\n%s\n", s);
+	ft_printf("%s\n", s);
 	exit(EXIT_SUCCESS);
 }
-void check_input(int ac, char **av)
+void check_input(int ac, char **av, t_map *map)
 {
 	if (ac < 2)
-	{
-		ft_printf("Error\nNo arguments were passed\n");
-		exit(EXIT_FAILURE);
-	}
+		clean_exit(map, "Error\nNo arguments were passed\n");
 	else if (ac > 2)
-	{
-		ft_printf("Error\nToo many arguments\n");
-		exit(EXIT_FAILURE);
-	}
+		clean_exit(map, "Error\nToo many arguments\n");
 }
 
 void init_win(t_map *map)
@@ -62,7 +58,7 @@ int main(int ac, char **av)
 {
 	t_map	map;
 	ft_bzero(&map, sizeof(map));
-	check_input(ac, av);
+	check_input(ac, av, &map);
 	if (!read_map(av[1], &map) || !(valid_map(&map)))
 		exit(EXIT_FAILURE);
 	init_win(&map);

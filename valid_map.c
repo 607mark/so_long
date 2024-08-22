@@ -24,7 +24,7 @@ static int symbols_check(t_map *map)
 		{
 			if (!(ft_strchr((const char *)"01CEP", map->tiles[i][j])))
 			{
-				ft_printf("Error\nForbidden symbol");
+				ft_printf("Error\nForbidden symbol\n");
 				return (0);
 			}	
 			j++;
@@ -93,7 +93,7 @@ static int borders_check(t_map *map)
 	}
 	check_walls(map, &flag);
 	if (flag)
-		ft_printf("Error\nWalls are missing");
+		ft_printf("Error\nWalls are missing\n");
 	return (!flag);
 }
 
@@ -101,7 +101,7 @@ int valid_map(t_map *map)
 {
 	if (!symbols_check(map) || !shape_check(map) || !borders_check(map) || !char_check(map) || !path_find(map))
 	{
-		free_arrs(map, map->height, "");
+		clean_exit(map, "");;
 		return (0);
 	}
 	return (1);
