@@ -6,7 +6,7 @@
 /*   By: mshabano <mshabano@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 18:02:46 by mshabano          #+#    #+#             */
-/*   Updated: 2024/05/23 15:14:26 by mshabano         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:59:54 by mshabano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static ssize_t	read_file(int fd, char *buffer, char **line)
 {
 	ssize_t		bytes_read;
 
-	ft_bzero(buffer, BUFFER_SIZE + 1);
+	gnl_bzero(buffer, BUFFER_SIZE + 1);
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
 	if ((bytes_read == 0 && **line == '\0') || bytes_read == -1)
 	{
@@ -46,7 +46,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	while (nl_p == NULL)
 	{
-		line = join_gnl(line, buffer, ft_strlen(buffer));
+		line = join_gnl(line, buffer, gnl_strlen(buffer));
 		if (!line)
 			return (NULL);
 		bytes_read = read_file(fd, buffer, &line);
@@ -59,6 +59,6 @@ char	*get_next_line(int fd)
 	line = join_gnl(line, buffer, (nl_p - buffer) + 1);
 	if (!line)
 		return (NULL);
-	copy_mem(buffer, nl_p + 1, ft_strlen(nl_p + 1) + 1);
+	copy_mem(buffer, nl_p + 1, gnl_strlen(nl_p + 1) + 1);
 	return (line);
 }

@@ -6,16 +6,16 @@
 /*   By: mshabano <mshabano@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 18:05:36 by mshabano          #+#    #+#             */
-/*   Updated: 2024/05/23 15:52:17 by mshabano         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:59:26 by mshabano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 void	copy_mem(char *dst, char *src, size_t n)
-{	
-		while (n--)
-			*(dst++) = *(src++);
+{
+	while (n--)
+		*(dst++) = *(src++);
 }
 
 char	*join_gnl(char *s1, char *s2, int len)
@@ -26,7 +26,7 @@ char	*join_gnl(char *s1, char *s2, int len)
 	if (!s1)
 		len_s1 = 0;
 	else
-		len_s1 = ft_strlen(s1);
+		len_s1 = gnl_strlen(s1);
 	p = (char *) malloc((len_s1 + len + 1) * sizeof (char));
 	if (!p)
 	{
@@ -42,7 +42,7 @@ char	*join_gnl(char *s1, char *s2, int len)
 	return (p);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	gnl_strlen(const char *s)
 {
 	size_t	len;
 
@@ -63,7 +63,7 @@ char	*find_nl(char *s)
 	return (NULL);
 }
 
-void	ft_bzero(void *s, size_t n)
+void	gnl_bzero(void *s, size_t n)
 {
 	char	*temp_s;
 
