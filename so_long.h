@@ -6,7 +6,7 @@
 /*   By: mshabano <mshabano@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 13:43:06 by mshabano          #+#    #+#             */
-/*   Updated: 2024/08/22 14:20:17 by mshabano         ###   ########.fr       */
+/*   Updated: 2025/01/21 23:36:40 by mshabano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include "libft/ft_printf/ft_printf.h"
 
 # define SIZE 64
-
 # define NAME "so_long"
 
 # define WALL_IMG_PATH "./img/bush.png"
