@@ -1,7 +1,7 @@
-# So Long Game Project
+# so_long Game Project
 
 ## Description
-So Long is a 2D game project developed in C language as part of a School 42 basic game mechanics.
+so_long is a 2D game project developed in C as part of the School 42 curriculum, designed to implement basic game mechanics and utilize the MLX library.
 
 ## Prerequisites
 - MinilibX graphics library
